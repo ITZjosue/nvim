@@ -1,0 +1,21 @@
+-- require('tokyonight').setup({
+--   style = "storm",
+-- })
+-- vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme oxocarbon")
+-- vim.cmd("colorscheme nord")
+-- Load the colorscheme
+-- vim.g.nord_disable_background = true
+-- require('nord').set()
+-- vim.cmd("colorscheme poimandres")
+vim.cmd("colorscheme github_dark_high_contrast")
+vim.cmd("colorscheme github_dark_dimmed")
+-- require("gruvbox").setup({
+--   transparent_mode = true,
+-- })
+-- vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme cyberdream")
+-- vim.cmd[[colorscheme matrix]]
+-- vim.g.matrix_disable_background = true
+-- require('matrix').set({})
