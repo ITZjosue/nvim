@@ -29,6 +29,7 @@ keymap.set("n","<C-K>","<C-W>k")
 -- plugins
 -- vim-maximizer
 keymap.set("n","<leader>sm",":MaximizerToggle<CR>")
+-- Telescope
 keymap.set("n","<leader>ff",":Telescope find_files<CR>")
 keymap.set("n","<leader>fg",":Telescope live_grep<CR>")
 keymap.set("n","<leader>fb",":Telescope buffers<CR>")

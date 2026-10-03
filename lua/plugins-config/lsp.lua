@@ -9,7 +9,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = {buffer = event.buf}
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    -- open the definition in a new tab
+    vim.keymap.set('n', 'gd', function()
+      vim.lsp.buf.definition({
+        on_list = function(list)
+          local items = list.items
+          if #items == 0 then return end
+          local item = items[1]
+          vim.cmd('tabedit ' .. vim.fn.fnameescape(item.filename))
+          vim.api.nvim_win_set_cursor(0, { item.lnum, item.col - 1 })
+          vim.cmd('normal! zz')
+          if #items > 1 then
+            vim.fn.setqflist({}, ' ', { title = list.title, items = items })
+            vim.cmd('botright copen')
+          end
+        end,
+      })
+    end, opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
     vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
@@ -25,7 +41,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('harper_ls')
 vim.lsp.enable('eslint')
 vim.lsp.enable('html')
-vim.lsp.enable('svelteserver')
+vim.lsp.enable('svelte')
 vim.lsp.enable('gopls')
 vim.lsp.enable('tailwindcss')
 vim.lsp.enable('dockerls')

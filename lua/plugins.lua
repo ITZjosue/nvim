@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
   use 'nyoom-engineering/oxocarbon.nvim'
   use 'folke/tokyonight.nvim'
   use 'iruzo/matrix-nvim'
+  use 'catppuccin/nvim'
   -- colorschemes
 
   -- snippets
@@ -73,6 +74,8 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim' -- git integration
 
   use 'szw/vim-maximizer' -- maximize current window
+
+  use 'OXY2DEV/markview.nvim' -- markdown preview inside the buffer (don't lazy-load)
 
   use {
     'nvim-telescope/telescope.nvim',
